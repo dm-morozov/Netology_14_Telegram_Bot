@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS Users (
+    id BIGINT PRIMARY KEY UNIQUE NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    chat_id BIGINT UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Words (
+    id SERIAL PRIMARY KEY,
+    target_word VARCHAR(50) NOT NULL,
+    russian_word VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS UserWords (
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    word_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (word_id) REFERENCES Words(id) ON DELETE CASCADE
+);

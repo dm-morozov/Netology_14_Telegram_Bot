@@ -1,0 +1,4 @@
+psycopg2-binary==2.9.9
+pyTelegramBotAPI==4.20.0
+requests==2.32.3
+SQLAlchemy==2.0.31
